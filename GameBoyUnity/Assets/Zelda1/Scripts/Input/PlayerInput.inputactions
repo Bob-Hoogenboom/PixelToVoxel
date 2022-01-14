@@ -300,6 +300,109 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "KartControls",
+            "id": "212eab0b-d204-4ca5-8ffb-a46845f705f0",
+            "actions": [
+                {
+                    "name": "Gas",
+                    "type": "Button",
+                    "id": "1ae2ba44-9780-41f3-8239-ee4df3970f5c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Break",
+                    "type": "Button",
+                    "id": "9272a5f8-b73a-4af6-b2ce-60586e51a839",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Turn",
+                    "type": "Button",
+                    "id": "00c9173d-88a7-44af-bb9b-749a20d0cbf1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "LookBack",
+                    "type": "Button",
+                    "id": "b843fe6b-2500-4149-93ec-c37b3369b65f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Drift",
+                    "type": "Button",
+                    "id": "8214cb3f-3529-421f-9e6b-0d10221b5384",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "eac9f0ae-a7fc-457e-bfcd-3bc0511a84e4",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Gas",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a89d4852-5366-4125-a4f9-f4873e564dad",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Break",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "92a3e095-1b81-482c-95d9-075d603a620b",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "72fd5c70-0279-4f57-86ae-c75130b3a29f",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LookBack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2e07998e-0397-4e86-a4cb-c4decc918eb9",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

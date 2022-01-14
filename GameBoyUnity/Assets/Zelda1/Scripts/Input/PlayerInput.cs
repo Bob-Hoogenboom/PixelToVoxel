@@ -313,6 +313,109 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""KartControls"",
+            ""id"": ""212eab0b-d204-4ca5-8ffb-a46845f705f0"",
+            ""actions"": [
+                {
+                    ""name"": ""Gas"",
+                    ""type"": ""Button"",
+                    ""id"": ""1ae2ba44-9780-41f3-8239-ee4df3970f5c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Break"",
+                    ""type"": ""Button"",
+                    ""id"": ""9272a5f8-b73a-4af6-b2ce-60586e51a839"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Turn"",
+                    ""type"": ""Button"",
+                    ""id"": ""00c9173d-88a7-44af-bb9b-749a20d0cbf1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LookBack"",
+                    ""type"": ""Button"",
+                    ""id"": ""b843fe6b-2500-4149-93ec-c37b3369b65f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Drift"",
+                    ""type"": ""Button"",
+                    ""id"": ""8214cb3f-3529-421f-9e6b-0d10221b5384"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""eac9f0ae-a7fc-457e-bfcd-3bc0511a84e4"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gas"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a89d4852-5366-4125-a4f9-f4873e564dad"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Break"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92a3e095-1b81-482c-95d9-075d603a620b"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""72fd5c70-0279-4f57-86ae-c75130b3a29f"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e07998e-0397-4e86-a4cb-c4decc918eb9"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -329,6 +432,13 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_MarioLandControls_Jump = m_MarioLandControls.FindAction("Jump", throwIfNotFound: true);
         m_MarioLandControls_CanonBallFlower = m_MarioLandControls.FindAction("CanonBallFlower", throwIfNotFound: true);
         m_MarioLandControls_Attack = m_MarioLandControls.FindAction("Attack", throwIfNotFound: true);
+        // KartControls
+        m_KartControls = asset.FindActionMap("KartControls", throwIfNotFound: true);
+        m_KartControls_Gas = m_KartControls.FindAction("Gas", throwIfNotFound: true);
+        m_KartControls_Break = m_KartControls.FindAction("Break", throwIfNotFound: true);
+        m_KartControls_Turn = m_KartControls.FindAction("Turn", throwIfNotFound: true);
+        m_KartControls_LookBack = m_KartControls.FindAction("LookBack", throwIfNotFound: true);
+        m_KartControls_Drift = m_KartControls.FindAction("Drift", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -488,6 +598,71 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         }
     }
     public MarioLandControlsActions @MarioLandControls => new MarioLandControlsActions(this);
+
+    // KartControls
+    private readonly InputActionMap m_KartControls;
+    private IKartControlsActions m_KartControlsActionsCallbackInterface;
+    private readonly InputAction m_KartControls_Gas;
+    private readonly InputAction m_KartControls_Break;
+    private readonly InputAction m_KartControls_Turn;
+    private readonly InputAction m_KartControls_LookBack;
+    private readonly InputAction m_KartControls_Drift;
+    public struct KartControlsActions
+    {
+        private @PlayerInput m_Wrapper;
+        public KartControlsActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Gas => m_Wrapper.m_KartControls_Gas;
+        public InputAction @Break => m_Wrapper.m_KartControls_Break;
+        public InputAction @Turn => m_Wrapper.m_KartControls_Turn;
+        public InputAction @LookBack => m_Wrapper.m_KartControls_LookBack;
+        public InputAction @Drift => m_Wrapper.m_KartControls_Drift;
+        public InputActionMap Get() { return m_Wrapper.m_KartControls; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(KartControlsActions set) { return set.Get(); }
+        public void SetCallbacks(IKartControlsActions instance)
+        {
+            if (m_Wrapper.m_KartControlsActionsCallbackInterface != null)
+            {
+                @Gas.started -= m_Wrapper.m_KartControlsActionsCallbackInterface.OnGas;
+                @Gas.performed -= m_Wrapper.m_KartControlsActionsCallbackInterface.OnGas;
+                @Gas.canceled -= m_Wrapper.m_KartControlsActionsCallbackInterface.OnGas;
+                @Break.started -= m_Wrapper.m_KartControlsActionsCallbackInterface.OnBreak;
+                @Break.performed -= m_Wrapper.m_KartControlsActionsCallbackInterface.OnBreak;
+                @Break.canceled -= m_Wrapper.m_KartControlsActionsCallbackInterface.OnBreak;
+                @Turn.started -= m_Wrapper.m_KartControlsActionsCallbackInterface.OnTurn;
+                @Turn.performed -= m_Wrapper.m_KartControlsActionsCallbackInterface.OnTurn;
+                @Turn.canceled -= m_Wrapper.m_KartControlsActionsCallbackInterface.OnTurn;
+                @LookBack.started -= m_Wrapper.m_KartControlsActionsCallbackInterface.OnLookBack;
+                @LookBack.performed -= m_Wrapper.m_KartControlsActionsCallbackInterface.OnLookBack;
+                @LookBack.canceled -= m_Wrapper.m_KartControlsActionsCallbackInterface.OnLookBack;
+                @Drift.started -= m_Wrapper.m_KartControlsActionsCallbackInterface.OnDrift;
+                @Drift.performed -= m_Wrapper.m_KartControlsActionsCallbackInterface.OnDrift;
+                @Drift.canceled -= m_Wrapper.m_KartControlsActionsCallbackInterface.OnDrift;
+            }
+            m_Wrapper.m_KartControlsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Gas.started += instance.OnGas;
+                @Gas.performed += instance.OnGas;
+                @Gas.canceled += instance.OnGas;
+                @Break.started += instance.OnBreak;
+                @Break.performed += instance.OnBreak;
+                @Break.canceled += instance.OnBreak;
+                @Turn.started += instance.OnTurn;
+                @Turn.performed += instance.OnTurn;
+                @Turn.canceled += instance.OnTurn;
+                @LookBack.started += instance.OnLookBack;
+                @LookBack.performed += instance.OnLookBack;
+                @LookBack.canceled += instance.OnLookBack;
+                @Drift.started += instance.OnDrift;
+                @Drift.performed += instance.OnDrift;
+                @Drift.canceled += instance.OnDrift;
+            }
+        }
+    }
+    public KartControlsActions @KartControls => new KartControlsActions(this);
     public interface IZelda1ControlsActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -501,5 +676,13 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnCanonBallFlower(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+    }
+    public interface IKartControlsActions
+    {
+        void OnGas(InputAction.CallbackContext context);
+        void OnBreak(InputAction.CallbackContext context);
+        void OnTurn(InputAction.CallbackContext context);
+        void OnLookBack(InputAction.CallbackContext context);
+        void OnDrift(InputAction.CallbackContext context);
     }
 }

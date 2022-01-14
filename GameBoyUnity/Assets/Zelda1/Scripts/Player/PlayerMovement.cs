@@ -9,11 +9,13 @@ public class PlayerMovement : MonoBehaviour
 
     private int _isWalkingHash;
     private int _isAttackingHash;
-    
+    private int _isShieldingHash;
+
     private Vector2 _currentMoveInput;
     private Vector3 _currentMove;
     private bool _isMovePressed;
     private bool _isAttackPressed;
+    private bool _isShieldPressed;
     
     [SerializeField] private Animator _animator;
     [SerializeField] private float rotationFactorPerformance = 1f;
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
         _isWalkingHash = Animator.StringToHash("isWalking");
         _isAttackingHash = Animator.StringToHash("isAttacking");
+        _isShieldingHash = Animator.StringToHash("isShielding");
         
         //set player input callbacks
         _playerInput.Zelda1Controls.Move.started += OnMovementInput;
@@ -36,6 +39,10 @@ public class PlayerMovement : MonoBehaviour
         _playerInput.Zelda1Controls.Attack.started += OnAttack;
         _playerInput.Zelda1Controls.Attack.canceled += OnAttack;
         _playerInput.Zelda1Controls.Attack.performed += OnAttack;
+        
+        _playerInput.Zelda1Controls.Shield.started += OnShield;
+        _playerInput.Zelda1Controls.Shield.canceled += OnShield;
+        _playerInput.Zelda1Controls.Shield.performed += OnShield;
     }
     
     private void Update()
@@ -60,6 +67,12 @@ public class PlayerMovement : MonoBehaviour
     {
         _isAttackPressed = context.ReadValueAsButton();
         Debug.Log("attacked");
+    }
+    
+    private void OnShield(InputAction.CallbackContext context)
+    {
+        _isShieldPressed = context.ReadValueAsButton();
+        Debug.Log("blocked");
     }
     
     private void HandleRotation()
@@ -92,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
     {
         bool isWalking = _animator.GetBool(_isWalkingHash);
         bool isAttacking = _animator.GetBool(_isAttackingHash);
+        bool isShielding = _animator.GetBool(_isShieldingHash);
 
         if (_isMovePressed && !isWalking) {
             _animator.SetBool(_isWalkingHash, true);
@@ -106,6 +120,14 @@ public class PlayerMovement : MonoBehaviour
         
         if (!_isAttackPressed && isAttacking) {
             _animator.SetBool(_isAttackingHash, false);
+        }
+        
+        if (_isShieldPressed && !isShielding) {
+            _animator.SetBool(_isShieldingHash, true);
+        }
+        
+        if (!_isShieldPressed && isShielding) {
+            _animator.SetBool(_isShieldingHash, false);
         }
     }
     
