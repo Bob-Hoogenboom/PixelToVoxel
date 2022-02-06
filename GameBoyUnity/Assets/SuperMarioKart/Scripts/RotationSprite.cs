@@ -16,14 +16,12 @@ public class RotationSprite : ScriptableObject
 
     public Sprite GetSpriteFromRotation(float rotation)
     {
-        Sprite result = null;
+        // Sprite result = null;
 
         var closest = spriteRotations.Select( n => new { n, distance = Mathf.Abs( n.rotation - rotation ) } )
             .OrderBy( p => p.distance )
             .First().n.sprite;
 
         return closest;
-        
-        
     }
 }

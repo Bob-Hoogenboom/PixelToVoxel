@@ -5,12 +5,7 @@ using UnityEditor.Build.Reporting;
 
 	public class CameraController : MonoBehaviour
 	{
-		/// <summary>
-		/// 1. camera control needs to change to right stick
-		/// 2. variables need to be able to change cant more the camera up or down once the
-		/// scene starts
-		/// </summary>
-		
+
 		public Transform target;
 		public float angleY = 35;
 		public float rotationSmoothing = 10;

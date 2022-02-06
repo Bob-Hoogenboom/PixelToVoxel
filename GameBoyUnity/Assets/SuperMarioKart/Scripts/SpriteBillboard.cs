@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -13,6 +14,8 @@ using System.Collections.Generic;
 		private Transform _billboard;
 
 		private Transform _t;
+
+		[SerializeField] private Transform _kartRotation;
 		
 
 		void Start()
@@ -30,6 +33,19 @@ using System.Collections.Generic;
 
 			// Change this with your own sprite animation stuff
 			Vector3 Angle = cameraDirection.Angle;
-			_sprite.sprite = rotationSprite.GetSpriteFromRotation(Angle.x);
+			var kartRotation = _kartRotation.localEulerAngles.y;
+			var sumRotation = Angle.x - kartRotation;
+
+			if (sumRotation > 360)
+			{
+				sumRotation -= 360;
+			}
+			else if (sumRotation < 0)
+			{
+				sumRotation += 360;
+			}
+			
+			_sprite.sprite = rotationSprite.GetSpriteFromRotation(sumRotation);
+			// Debug.Log(Angle.x + " & " + kartRotation + " = " + sumRotation);
 		}
 	}
