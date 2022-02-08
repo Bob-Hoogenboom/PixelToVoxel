@@ -6,6 +6,7 @@ using UnityEngine;
 public class SpeedRampScroll : MonoBehaviour
 {
     [SerializeField] private float _scrollSpeed = -0.7f;
+    [SerializeField] private float _speedBoost = 15f;
     
     void Update()
     {
@@ -15,6 +16,8 @@ public class SpeedRampScroll : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        other.attachedRigidbody.AddForce(Vector3.forward * _speedBoost);
+        print("Triggered!!");
+        Debug.Log(other);
     }
 }

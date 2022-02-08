@@ -214,7 +214,7 @@ Transform:
   m_GameObject: {fileID: 117416002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 30, y: 1, z: 30}
+  m_LocalScale: {x: 50, y: 1, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -394,7 +394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5298718360388334902, guid: 2997d85eb52d1674c8526d36d765df24, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5298718360388334902, guid: 2997d85eb52d1674c8526d36d765df24, type: 3}
       propertyPath: m_LocalRotation.w
@@ -444,6 +444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scrollSpeed: -0.7
+  _speedBoost: 2000
 --- !u!1 &1579525958
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1316289846580051375, guid: e7ad197d42f01454da667e945511eef7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1316289846580051375, guid: e7ad197d42f01454da667e945511eef7, type: 3}
       propertyPath: m_LocalPosition.y
